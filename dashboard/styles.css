@@ -29,6 +29,48 @@ a {
   text-decoration: none;
 }
 
+button {
+  font: inherit;
+}
+
+.topbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 22px;
+}
+
+.brand {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.language-switch {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+}
+
+.language-switch button {
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 900;
+  min-height: 32px;
+  padding: 0 10px;
+}
+
+.language-switch button.active {
+  background: var(--teal);
+  color: #ffffff;
+}
+
 .shell {
   margin: 0 auto;
   max-width: 1160px;
@@ -42,7 +84,7 @@ a {
   gap: 28px;
   grid-template-columns: minmax(0, 1fr) 300px;
   padding-bottom: 32px;
-  padding-top: 72px;
+  padding-top: 54px;
 }
 
 .eyebrow {
@@ -249,7 +291,11 @@ tr:last-child td {
 
   .hero {
     align-items: stretch;
-    padding-top: 44px;
+    padding-top: 36px;
+  }
+
+  .topbar {
+    gap: 18px;
   }
 
   .panel-heading {

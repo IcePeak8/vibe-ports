@@ -11,38 +11,46 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="shell hero">
+    <header class="topbar shell" aria-label="Site controls" data-i18n-label="siteControlsLabel">
+      <a class="brand" href="./" aria-label="Vibe Ports home" data-i18n-label="homeLabel">Vibe Ports</a>
+      <div class="language-switch" aria-label="Language switcher" data-i18n-label="languageSwitcherLabel">
+        <button type="button" data-lang-button="en">EN</button>
+        <button type="button" data-lang-button="zh">中文</button>
+      </div>
+    </header>
+
+    <section class="shell hero">
       <div>
         <p class="eyebrow">Vibe Ports</p>
-        <h1>Local port map for vibe coding agents.</h1>
-        <p class="lede">
+        <h1 data-i18n="heroTitle">Local port map for vibe coding agents.</h1>
+        <p class="lede" data-i18n="heroText">
           A static dashboard generated from a JSON registry. Agents use portctl to reserve ports;
           humans use this page to see the local service map at a glance.
         </p>
       </div>
       <aside class="hero-card">
-        <span>Registry</span>
+        <span data-i18n="registryLabel">Registry</span>
         <strong id="registry-count">0 entries</strong>
         <small id="registry-updated">Loading...</small>
       </aside>
-    </header>
+    </section>
 
     <main class="shell stack">
       <section class="metrics" aria-label="Port registry metrics">
         <article>
-          <span>Entries</span>
+          <span data-i18n="metricEntries">Entries</span>
           <strong id="metric-entries">0</strong>
         </article>
         <article>
-          <span>Ranges</span>
+          <span data-i18n="metricRanges">Ranges</span>
           <strong id="metric-ranges">0</strong>
         </article>
         <article>
-          <span>Reserved</span>
+          <span data-i18n="metricReserved">Reserved</span>
           <strong id="metric-reserved">0</strong>
         </article>
         <article>
-          <span>Listening</span>
+          <span data-i18n="metricListening">Listening</span>
           <strong id="metric-listening">0</strong>
         </article>
       </section>
@@ -50,8 +58,8 @@
       <section class="panel">
         <div class="panel-heading">
           <div>
-            <p class="eyebrow">Registry</p>
-            <h2>Ports</h2>
+            <p class="eyebrow" data-i18n="registryEyebrow">Registry</p>
+            <h2 data-i18n="portsTitle">Ports</h2>
           </div>
           <code>ports.json</code>
         </div>
@@ -59,13 +67,13 @@
           <table>
             <thead>
               <tr>
-                <th>Port</th>
-                <th>Status</th>
-                <th>Project</th>
-                <th>Service</th>
-                <th>Type</th>
-                <th>Runtime</th>
-                <th>URL</th>
+                <th data-i18n="thPort">Port</th>
+                <th data-i18n="thStatus">Status</th>
+                <th data-i18n="thProject">Project</th>
+                <th data-i18n="thService">Service</th>
+                <th data-i18n="thType">Type</th>
+                <th data-i18n="thRuntime">Runtime</th>
+                <th data-i18n="thUrl">URL</th>
               </tr>
             </thead>
             <tbody id="ports-body"></tbody>
@@ -77,8 +85,8 @@
       <section class="panel">
         <div class="panel-heading">
           <div>
-            <p class="eyebrow">Ranges</p>
-            <h2>Allocation Rules</h2>
+            <p class="eyebrow" data-i18n="rangesEyebrow">Ranges</p>
+            <h2 data-i18n="rangesTitle">Allocation Rules</h2>
           </div>
         </div>
         <div class="ranges" id="ranges"></div>

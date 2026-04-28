@@ -11,6 +11,7 @@ When AI coding tools start adding services to a project, they tend to grab the s
 - Explicit `--file` support for project-level registries
 - Linux-first listener detection with macOS support
 - Static dashboard export with no database or daemon required
+- Browser-language i18n with English and Chinese UI
 - Codex skill/rules for AI coding agents
 
 ## Install / Use From Source
@@ -121,7 +122,7 @@ python3 -m http.server 8080 -d site
 
 Open `http://localhost:8080`.
 
-The exported dashboard is a snapshot. It can include runtime status at export time, but it does not scan the machine after deployment. For live status, run `portctl doctor` or re-export.
+The dashboard follows the browser language by default and supports English/Chinese switching in the top-right corner. The exported dashboard is a snapshot. It can include runtime status at export time, but it does not scan the machine after deployment. For live status, run `portctl doctor` or re-export.
 
 ## Development
 
