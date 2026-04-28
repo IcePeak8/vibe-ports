@@ -123,6 +123,13 @@ h2 {
   max-width: 720px;
 }
 
+.section-copy {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 22px;
+  max-width: 760px;
+}
+
 .hero-card,
 .metrics article,
 .panel {
@@ -186,6 +193,69 @@ h2 {
   margin-bottom: 22px;
 }
 
+.usage-list {
+  display: grid;
+  gap: 0;
+}
+
+.usage-step {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 48px minmax(0, 1fr);
+  padding: 22px 0;
+}
+
+.usage-step:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.usage-step > span {
+  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 900;
+  padding-top: 4px;
+}
+
+.usage-step h3 {
+  font-size: 1.08rem;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+
+.usage-step p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+pre {
+  background: var(--ink);
+  border-radius: 8px;
+  margin: 0;
+  overflow-x: auto;
+  padding: 14px 16px;
+}
+
+.agent-note {
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-top: 22px;
+  padding: 18px;
+}
+
+.agent-note strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.agent-note p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
 code,
 .badge {
   background: var(--wash);
@@ -195,6 +265,16 @@ code,
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.82rem;
   padding: 7px 9px;
+}
+
+pre code {
+  background: transparent;
+  border: 0;
+  color: #f7faf8;
+  display: block;
+  line-height: 1.65;
+  padding: 0;
+  white-space: pre;
 }
 
 .table-wrap {
@@ -301,5 +381,9 @@ tr:last-child td {
   .panel-heading {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .usage-step {
+    grid-template-columns: 1fr;
   }
 }

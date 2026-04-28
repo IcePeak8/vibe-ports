@@ -58,6 +58,72 @@
       <section class="panel">
         <div class="panel-heading">
           <div>
+            <p class="eyebrow" data-i18n="usageEyebrow">Usage</p>
+            <h2 data-i18n="usageTitle">Start with the registry, then let agents follow it.</h2>
+          </div>
+        </div>
+        <p class="section-copy" data-i18n="usageIntro">
+          Vibe Ports is a small local contract: humans reserve important ports, agents ask the CLI
+          before starting a service, and the dashboard gives everyone a shared view.
+        </p>
+        <div class="usage-list">
+          <article class="usage-step">
+            <span>01</span>
+            <div>
+              <h3 data-i18n="usageInitTitle">Initialize a registry</h3>
+              <p data-i18n="usageInitText">
+                Create the user-level registry, optionally with sample entries.
+              </p>
+              <pre><code>portctl init --examples
+portctl list</code></pre>
+            </div>
+          </article>
+          <article class="usage-step">
+            <span>02</span>
+            <div>
+              <h3 data-i18n="usageNextTitle">Find a safe port</h3>
+              <p data-i18n="usageNextText">
+                Ask for the next available port in a rule-based range before starting a service.
+              </p>
+              <pre><code>portctl next frontend --project my-app --service web
+portctl check 3000</code></pre>
+            </div>
+          </article>
+          <article class="usage-step">
+            <span>03</span>
+            <div>
+              <h3 data-i18n="usageReserveTitle">Register the decision</h3>
+              <p data-i18n="usageReserveText">
+                Reserve or assign the port so future coding sessions avoid collisions.
+              </p>
+              <pre><code>portctl reserve 3001 my-app web --type frontend
+portctl doctor</code></pre>
+            </div>
+          </article>
+          <article class="usage-step">
+            <span>04</span>
+            <div>
+              <h3 data-i18n="usageExportTitle">Export the dashboard</h3>
+              <p data-i18n="usageExportText">
+                Generate a static page for local preview or a safe public demo.
+              </p>
+              <pre><code>portctl export --out site
+python3 -m http.server 8080 -d site</code></pre>
+            </div>
+          </article>
+        </div>
+        <div class="agent-note">
+          <strong data-i18n="usageAgentTitle">For AI agents</strong>
+          <p data-i18n="usageAgentText">
+            Install or copy skills/codex/local-port-registry/SKILL.md, then require agents to run
+            portctl next or portctl check before choosing any PORT.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
             <p class="eyebrow" data-i18n="registryEyebrow">Registry</p>
             <h2 data-i18n="portsTitle">Ports</h2>
           </div>
