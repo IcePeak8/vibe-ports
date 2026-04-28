@@ -5,3 +5,17 @@ coverage/
 examples/ports.demo.json
 *.log
 .DS_Store
+
+# Keep the full local tool usable on this machine without publishing it.
+dashboard/
+docs/
+examples/
+scripts/
+skills/
+src/
+package.json
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+vercel.json
+LICENSE

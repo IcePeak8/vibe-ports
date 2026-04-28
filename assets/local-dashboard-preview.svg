@@ -1,0 +1,57 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Local port registry dashboard preview</title>
+  <desc id="desc">A static visual reference for a local dashboard showing port metrics, reserved ports, and allocation ranges.</desc>
+  <rect width="1280" height="760" fill="#F7FAF8"/>
+  <rect x="72" y="42" width="1136" height="676" rx="18" fill="#FFFFFF" stroke="#DFE5E2"/>
+  <text x="112" y="94" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Local Port Registry</text>
+  <rect x="1018" y="65" width="70" height="34" rx="8" fill="#147A72"/>
+  <text x="1042" y="87" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">EN</text>
+  <rect x="1096" y="65" width="72" height="34" rx="8" fill="#EEF5F2" stroke="#DFE5E2"/>
+  <text x="1118" y="87" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">ZH</text>
+
+  <text x="112" y="169" fill="#147A72" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="900">VIBE PORTS</text>
+  <text x="112" y="229" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="900">A shared map for</text>
+  <text x="112" y="291" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="900">agent-safe local ports.</text>
+  <text x="112" y="337" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="22">Reserve important ports, avoid collisions, and keep coding agents aligned.</text>
+
+  <rect x="914" y="152" width="254" height="166" rx="10" fill="#EEF5F2" stroke="#DFE5E2"/>
+  <text x="942" y="199" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Registry</text>
+  <text x="942" y="250" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="900">12 entries</text>
+  <text x="942" y="286" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="16">Updated locally</text>
+
+  <g transform="translate(112 390)">
+    <rect width="240" height="96" rx="10" fill="#FFFFFF" stroke="#DFE5E2"/>
+    <text x="24" y="36" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Registered</text>
+    <text x="24" y="75" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">12</text>
+  </g>
+  <g transform="translate(372 390)">
+    <rect width="240" height="96" rx="10" fill="#FFFFFF" stroke="#DFE5E2"/>
+    <text x="24" y="36" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Ranges</text>
+    <text x="24" y="75" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">8</text>
+  </g>
+  <g transform="translate(632 390)">
+    <rect width="240" height="96" rx="10" fill="#FFFFFF" stroke="#DFE5E2"/>
+    <text x="24" y="36" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Reserved</text>
+    <text x="24" y="75" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">4</text>
+  </g>
+  <g transform="translate(892 390)">
+    <rect width="240" height="96" rx="10" fill="#FFFFFF" stroke="#DFE5E2"/>
+    <text x="24" y="36" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Listening</text>
+    <text x="24" y="75" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">3</text>
+  </g>
+
+  <rect x="112" y="526" width="760" height="130" rx="10" fill="#FFFFFF" stroke="#DFE5E2"/>
+  <text x="136" y="566" fill="#147A72" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900">PORTS</text>
+  <line x1="136" y1="586" x2="848" y2="586" stroke="#DFE5E2"/>
+  <text x="136" y="620" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">3000</text>
+  <rect x="218" y="600" width="92" height="30" rx="8" fill="#E5F4F1"/>
+  <text x="238" y="620" fill="#147A72" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">reserved</text>
+  <text x="344" y="620" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="16">frontend app</text>
+  <text x="670" y="620" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="16">localhost:3000</text>
+  <line x1="136" y1="636" x2="848" y2="636" stroke="#DFE5E2"/>
+
+  <rect x="912" y="526" width="256" height="130" rx="10" fill="#EEF5F2" stroke="#DFE5E2"/>
+  <text x="936" y="566" fill="#147A72" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900">AI AGENT RULE</text>
+  <text x="936" y="604" fill="#181B22" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">Check registry first.</text>
+  <text x="936" y="635" fill="#5C6470" font-family="Inter, Arial, sans-serif" font-size="15">Then choose or update a port.</text>
+</svg>

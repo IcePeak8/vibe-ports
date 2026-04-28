@@ -1,136 +1,64 @@
-# Vibe Ports
+# Local Port Registry Skill
 
-Local port registry and static dashboard for vibe coding agents.
+一个给 AI coding agent 使用的本地端口管理 skill。
 
-When AI coding tools start adding services to a project, they tend to grab the same defaults: `3000`, `3001`, `5173`, `8000`. Vibe Ports gives humans and agents a shared local source of truth: reserve ports, discover the next available port, and export a static dashboard anyone can open or host.
+它的目标很简单：当 AI 在本地创建服务、修改 `.env`、改 `package.json` scripts、启动 Next.js / Vite / API / worker / dashboard 服务时，不要随手复用 `3000`、`3001`、`5173`、`8000` 这些默认端口，而是先查看用户的本地端口约定，再选择安全端口。
 
-## Features
+## 复制到 Codex
 
-- `portctl` CLI for checking, reserving, and documenting local ports
-- User-level registry at `~/.config/vibe-ports/ports.json`
-- Explicit `--file` support for project-level registries
-- Linux-first listener detection with macOS support
-- Static dashboard export with no database or daemon required
-- Browser-language i18n with English and Chinese UI
-- Codex skill/rules for AI coding agents
-
-## Install / Use From Source
-
-```bash
-git clone https://github.com/IcePeak8/vibe-ports.git
-cd vibe-ports
-npm install
-npm link
-```
-
-Then initialize your global registry:
-
-```bash
-portctl init --examples
-portctl list
-```
-
-Without `npm link`, run the CLI directly:
-
-```bash
-node src/portctl.mjs init --examples
-node src/portctl.mjs list
-```
-
-## CLI
-
-```bash
-portctl init --examples
-portctl config
-portctl list
-portctl ranges
-portctl check 3000
-portctl next frontend --project my-app --service web
-portctl reserve 3001 my-app web --type frontend
-portctl doctor
-portctl export --out site
-```
-
-`portctl export --out site` writes a static dashboard to `site/`. You can serve that directory locally or publish it to GitHub Pages, Vercel, Netlify, or any static host.
-
-## Registry Semantics
-
-| Status | Meaning |
-|---|---|
-| `reserved` | User-level reservation. Do not use for another service even if the port is not listening. |
-| `preferred` | Tool/project preferred port. Use only for the matching project/service. |
-| `assigned` | Assigned to a concrete local service. |
-| `blocked` | Never use. |
-
-A port is usable only when both checks pass:
+把 `local-port-registry/SKILL.md` 复制到：
 
 ```txt
-registry says usable + runtime says free = usable
-registry says blocked + runtime says free = not usable
-registry says usable + runtime says listening = not usable
+~/.codex/skills/local-port-registry/SKILL.md
 ```
 
-## Default Port Ranges
+然后开启新的 Codex 会话，让 Codex 重新发现这个 skill。
 
-| Type | Range | Usage |
-|---|---:|---|
-| `frontend` | 3000-3099 | Next.js, Vite, Astro, docs preview |
-| `api` | 3100-3199 | API, BFF, model adapters |
-| `worker` | 3200-3299 | Workers, queues, automation |
-| `admin` | 3300-3399 | Dashboards, docs, inspectors |
-| `webhook` | 4000-4099 | Webhooks, OAuth callbacks, tunnels |
-| `experiment` | 5000-5999 | Demos and prototypes |
-| `database` | 5400-6499 | Postgres, Redis, vector DBs |
-| `ai-gateway` | 18700-18799 | Local AI gateways and agent control planes |
+也可以用命令复制：
 
-## Agent Rules
+```bash
+mkdir -p ~/.codex/skills/local-port-registry
+cp local-port-registry/SKILL.md ~/.codex/skills/local-port-registry/SKILL.md
+```
 
-For Codex, copy or install:
+## 复制到其他 AI Agent
+
+如果你的工具不支持 Codex skill 目录，可以直接把 `local-port-registry/SKILL.md` 的内容复制到：
+
+- 全局规则
+- 项目规则
+- agent instructions
+- system prompt
+
+适合放到 Claude Code、Cursor Agent、Gemini CLI、OpenCode、OpenClaw 或其他会修改本地项目端口配置的 AI coding 工具里。
+
+## 它会让 AI 做什么
+
+- 创建或修改本地服务前，先检查端口约定。
+- 尊重用户预留端口，例如某个项目固定使用 `3000`。
+- 区分 `reserved`、`preferred`、`assigned`、`blocked`。
+- 在 Linux / macOS 上检查端口是否已经被监听。
+- 不主动 kill 占用端口的进程，除非用户明确要求。
+- 修改端口后，更新本地 registry，方便下一次 agent 继续遵守。
+
+## 可视化参考
+
+完整的本地工具可以渲染类似这样的端口看板；这个仓库只提供 skill 本身和一张静态参考图。
+
+![Local dashboard preview](assets/local-dashboard-preview.svg)
+
+## English
+
+This repository distributes a single AI-agent skill for local port management.
+
+Copy `local-port-registry/SKILL.md` into:
 
 ```txt
-skills/codex/local-port-registry/SKILL.md
+~/.codex/skills/local-port-registry/SKILL.md
 ```
 
-The key rule is simple: before assigning any `PORT`, the agent must inspect the registry and run `portctl next` or `portctl check`.
+Then start a new Codex session so the skill can be discovered.
 
+For other AI coding agents, paste the contents of `local-port-registry/SKILL.md` into global rules, project rules, agent instructions, or the system prompt.
 
-## Safe Cloud Deployment
-
-The repository is safe to deploy as a public static dashboard. Cloud builds use fake demo data, not your local registry:
-
-- Fake cloud data: `examples/cloud-demo-ports.json`
-- Default static fallback: `dashboard/ports.json`
-- Vercel build output: `site/`
-- Build command: `npm run build`
-
-The build script exports with `--no-runtime`, so it does not include local listener/process details:
-
-```bash
-npm run build
-npm run preview
-```
-
-Keep your real machine registry in `~/.config/vibe-ports/ports.json` or another private file passed with `--file`. Do not commit personal registry exports.
-
-## Static Dashboard
-
-```bash
-portctl init --examples
-portctl export --out site
-python3 -m http.server 8080 -d site
-```
-
-Open `http://localhost:8080`.
-
-The dashboard follows the browser language by default and supports English/Chinese switching in the top-right corner. The exported dashboard is a snapshot. It can include runtime status at export time, but it does not scan the machine after deployment. For live status, run `portctl doctor` or re-export.
-
-## Development
-
-```bash
-npm run check
-npm test
-```
-
-## License
-
-MIT
+The skill tells agents to check local port reservations and runtime listeners before choosing or changing development ports.
