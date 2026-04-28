@@ -40,7 +40,7 @@ function render(data) {
   body.innerHTML = entries
     .map((entry) => {
       const runtime = runtimeFor(entry.port, data);
-      const runtimeLabel = runtime?.runtime || "unknown";
+      const runtimeLabel = runtime?.runtime || "not-scanned";
 
       return `<tr>
         <td><code>${entry.port}</code></td>

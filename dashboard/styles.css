@@ -209,7 +209,8 @@ tr:last-child td {
   font-weight: 900;
 }
 
-.runtime-free {
+.runtime-free,
+.runtime-not-scanned {
   color: var(--muted);
 }
 

@@ -467,7 +467,7 @@ Usage:
   portctl next <type> [--project name] [--service name] [--json]
   portctl reserve <port> <project> <service> [--type frontend] [--status assigned]
   portctl doctor [--json]
-  portctl export [--out site] [--json]
+  portctl export [--out site] [--no-runtime] [--json]
 
 Options:
   --file <path>      Registry file. Defaults to ~/.config/vibe-ports/ports.json
@@ -755,6 +755,10 @@ async function reserveCommand(registry, registryFile, flags, positional) {
 }
 
 async function buildRuntimeSnapshot(registry, flags) {
+  if (flags["no-runtime"]) {
+    return [];
+  }
+
   const host = String(flags.host || registry.defaults?.host || "127.0.0.1");
   const portCounts = new Map();
 

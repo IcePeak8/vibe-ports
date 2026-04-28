@@ -12,7 +12,9 @@
     "test": "node scripts/smoke-test.mjs",
     "ports": "node src/portctl.mjs",
     "demo:init": "node src/portctl.mjs init --file ./examples/ports.demo.json --examples --force",
-    "demo:export": "node src/portctl.mjs export --file ./examples/ports.demo.json --out ./site"
+    "demo:export": "node src/portctl.mjs export --file ./examples/ports.demo.json --out ./site",
+    "build": "node src/portctl.mjs export --file examples/cloud-demo-ports.json --out site --no-runtime",
+    "preview": "python3 -m http.server 4173 -d site"
   },
   "keywords": [
     "vibe-coding",

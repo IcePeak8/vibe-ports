@@ -55,3 +55,9 @@ Override with:
 PORT_REGISTRY_FILE=/path/to/ports.json portctl list
 portctl list --file /path/to/ports.json
 ```
+
+## Public Demo Data
+
+Use `examples/cloud-demo-ports.json` for public deployments. It contains fake services only. The committed `dashboard/ports.json` is also fake fallback data for static hosts that serve `dashboard/` directly.
+
+Use `portctl export --no-runtime` when generating a public dashboard so listener/process rows from your local machine are not included.

@@ -92,6 +92,25 @@ skills/codex/local-port-registry/SKILL.md
 
 The key rule is simple: before assigning any `PORT`, the agent must inspect the registry and run `portctl next` or `portctl check`.
 
+
+## Safe Cloud Deployment
+
+The repository is safe to deploy as a public static dashboard. Cloud builds use fake demo data, not your local registry:
+
+- Fake cloud data: `examples/cloud-demo-ports.json`
+- Default static fallback: `dashboard/ports.json`
+- Vercel build output: `site/`
+- Build command: `npm run build`
+
+The build script exports with `--no-runtime`, so it does not include local listener/process details:
+
+```bash
+npm run build
+npm run preview
+```
+
+Keep your real machine registry in `~/.config/vibe-ports/ports.json` or another private file passed with `--file`. Do not commit personal registry exports.
+
 ## Static Dashboard
 
 ```bash
